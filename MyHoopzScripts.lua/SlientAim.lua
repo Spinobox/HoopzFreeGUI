@@ -9,7 +9,7 @@ local humanoid = character:WaitForChild("Humanoid")
 local hoop = workspace:WaitForChild("Hoop") -- Your hoop part
 local hoopPosition = hoop.Position
 
-local SILENT_AIM_RANGE = 30 -- studs around the hoop for auto targeting
+local SILENT_AIM_RANGE = 63 -- studs around the hoop for auto targeting
 local HIGHLIGHT_COLOR = Color3.new(0, 1, 0) -- green glow or similar
 local SHOOT_SUCCESS_CHANCE = 0.9 -- 90%
 -- Table to keep track of highlights
@@ -71,7 +71,7 @@ end
 local function calculateShotPower(distance)
 	-- Simple linear mapping, adjust as needed
 	-- E.g., power max is 100 at 0 studs, min 50 at SILENT_AIM_RANGE
-	local maxPower = 100
+	local maxPower = 85
 	local minPower = 50
 	local power = maxPower - ((distance / SILENT_AIM_RANGE) * (maxPower - minPower))
 	return math.clamp(power, minPower, maxPower)
